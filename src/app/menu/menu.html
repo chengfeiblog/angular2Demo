@@ -1,0 +1,190 @@
+<div>
+  <div class="no-print">
+    <section id="header" class="top-header">
+      <header class="clearfix">
+        <!-- Logo -->
+        <div class="logo">
+          <a href="javascript: void 0;">
+            <span>grace</span>
+          </a>
+        </div>
+        <!-- needs to be put after logo to make it working-->
+        <div class="menu-button" toggle-off-canvas>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </div>
+
+        <div class="top-nav">
+          <ul class="nav-left list-unstyled">
+            <li>
+              <a href="#/" toggle-min-nav class="toggle-min"><i class="fa fa-bars"></i></a>
+            </li>
+          </ul>
+
+          <ul class="nav-right pull-right list-unstyled">
+            <li class="dropdown" dropdown>
+              <a href="#" class="dropdown-toggle bg-orange" dropdownToggle>
+                <i class="fa fa-comment-o"></i>
+                <span class="badge badge-info">0</span>
+              </a>
+
+              <div class="dropdown-menu pull-right with-arrow panel panel-default">
+                <div class="panel-heading">
+                  没有收到信消息
+                </div>
+                <ul class="list-group">
+                  <!--
+                  <li class="list-group-item">
+                      <a href="javascript:" class="media">
+                                  <span class="pull-left media-icon">
+                                      <span class="joyoStyle-view-containericon sm bg-info"><i class="fa fa-comment-o"></i></span>
+                                  </span>
+                          <div class="media-body">
+                              <span class="block">消息1</span>
+                              <span class="text-muted">1小时前</span>
+                          </div>
+                      </a>
+                  </li>
+                  <li class="list-group-item">
+                      <a href="javascript:" class="media">
+                                  <span class="pull-left media-icon">
+                                      <span class="joyoStyle-icon sm bg-danger"><i class="fa fa-comment-o"></i></span>
+                                  </span>
+                          <div class="media-body">
+                              <span class="block">消息2</span>
+                              <span class="text-muted">2小时前</span>
+                          </div>
+                      </a>
+                  </li>
+                  -->
+                </ul>
+                <!--
+                <div class="panel-footer">
+                    <a href="javascript:">查看所有新消息</a>
+                </div>
+                -->
+              </div>
+            </li>
+            <li class="dropdown" dropdown>
+              <a href="#" class="dropdown-toggle bg-success" dropdownToggle>
+                <i class="fa fa-bell-o nav-icon"></i>
+                <span class="badge badge-info">0</span>
+              </a>
+
+              <div class="dropdown-menu pull-right with-arrow panel panel-default">
+                <div class="panel-heading">
+                  没有新通知
+                </div>
+                <ul class="list-group">
+                  <!--
+                  <li class="list-group-item">
+                      <a href="javascript:" class="media">
+                                  <span class="pull-left media-icon">
+                                      <span class="joyoStyle-icon sm bg-success"><i class="fa fa-bell-o"></i></span>
+                                  </span>
+                          <div class="media-body">
+                              <span class="block">通知1</span>
+                              <span class="text-muted block">2分钟之前</span>
+                          </div>
+                      </a>
+                  </li>
+                  <li class="list-group-item">
+                      <a href="javascript:" class="media">
+                                  <span class="pull-left media-icon">
+                                      <span class="joyoStyle-icon sm bg-info"><i class="fa fa-bell-o"></i></span>
+                                  </span>
+                          <div class="media-body">
+                              <span class="block">通知2</span>
+                              <span class="text-muted">3小时之前</span>
+                          </div>
+                      </a>
+                  </li>
+                  -->
+                </ul>
+                <!--
+                <div class="panel-footer">
+                    <a href="javascript:">查看所有通知</a>
+                </div>
+                -->
+              </div>
+            </li>
+            <li>
+              <a href="javascript:void 0" class="bg-info">
+                <i class="fa fa-tasks"></i>
+              </a>
+            </li>
+          </ul>
+          <ul class="nav-left list-unstyled pull-right">
+            <li class="dropdown text-normal line-heignt2 nav-profile" dropdown>
+              <a href="#" class="dropdown-toggle" dropdownToggle>
+                <img [src]="avatarUrl" alt="" class="img-circle img30_30">
+                                        <span class="hidden-xs">
+                                              <span>总部</span>
+                                            <span>阿飞</span>
+                                        </span>
+              </a>
+              <ul class="dropdown-menu with-arrow">
+                <!--<li>
+                    <a href="#/profile">
+                        <i class="fa fa-user"></i>
+                        <span>用户信息</span>
+                    </a>
+                </li>-->
+                <li>
+                  <a href="javascript:void(0)" ng-click="changePassword()">
+                    <i class="fa fa-key"></i>
+                    <span>修改密码</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)" ng-click="logout()">
+                    <i class="fa fa-sign-out"></i>
+                    <span>安全退出</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+        </div>
+      </header>
+    </section>
+    <aside id="nav-container">
+      <div id="nav-wrapper">
+        <div class="nav-placehoder">
+        </div>
+        <ul id="nav" slim-scroll collapse-nav>
+          <li><a [routerLink]="['./home']" routerLinkActive="active-link"> <i class="fa fa-dashboard"></i><span>主页</span> </a></li>
+          <li require-permissions="">
+            <a href="#"><i class="fa fa-rmb"></i><span>销售详情</span> </a><i class="fa fa-caret-right icon-has-ul"></i>
+            <ul>
+              <li require-permissions="">
+                <a [routerLink]="['./salesReports']" routerLinkActive="active-link"><i class="fa fa-caret-right"></i><span>销售简报</span></a>
+              </li>
+            </ul>
+          </li>
+          <!--<li>-->
+          <!--<a><i class="fa fa-bar-chart"></i><span>聊天室</span></a><i class="fa fa-caret-right icon-has-ul"></i>-->
+          <!--<ul>-->
+          <!--<li><a ui-sref="menu.chat"><i class="fa fa-caret-right"></i><span>聊天室</span></a></li>-->
+          <!--</ul>-->
+          <!--</li>-->
+          <li>
+            <a href="#"><i class="fa fa-cogs"></i><span>系统设置</span></a><i class="fa fa-caret-right icon-has-ul"></i>
+            <ul>
+              <li>
+                <a href="#">
+                  <i class="fa fa-caret-right"></i><span>用户管理</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+  <section class="main-container" set-height>
+    <router-outlet></router-outlet>
+  </section>
+</div>

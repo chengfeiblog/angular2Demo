@@ -1,0 +1,36 @@
+.search-border{
+  border-bottom: solid 1px gainsboro; padding-bottom: 16px
+}
+.search-btn{
+  padding-bottom: 12px;
+}
+.table-scroll{
+    overflow:scroll;
+}
+.thead-bg{
+    background-color: #f4f4f4;
+}
+.thead-contact{
+    margin-right: -15px;
+    padding: 0px;
+}
+.vertical-middle{
+    vertical-align: middle !important;
+}
+
+:host(.salesReportsCmp) {
+    display: inline-block;
+    position: fixed;
+    width: 100%;
+    -webkit-transition: all ease-in 0.5s;
+    transition: all ease-in 0.5s;
+}
+
+:host(.salesReportsCmp.ng-enter) {
+    transform: rotateX(-180deg)
+}
+
+:host(.salesReportsCmp.ng-enter-active) {
+    transform: rotateX(0deg)
+}
+

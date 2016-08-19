@@ -1,0 +1,170 @@
+<div class="loading" *ngIf="loading">
+  <span class="dots-loader">Loading…</span>
+</div>
+<div class="page">
+    <div  class="card-border"></div>
+    <div class="form-search">
+      <div class="form-group row search-border">
+        <div class="col-lg-7 col-md-7 col-sm-12">
+          <label  class="col-lg-2 col-md-2 col-sm-6 text-right">销售归属</label>
+          <div class="col-lg-2 col-md-2 col-sm-6">
+            <input type="text" class="form-control">
+          </div>
+          <div class="col-lg-2 col-md-2 col-sm-6">
+            <select class="form-control">
+              <option>浙江省</option>
+            </select>
+          </div>
+          <div class="col-lg-2 col-md-2 col-sm-6">
+            <select class="form-control">
+              <option>请选择</option>
+            </select>
+          </div>
+          <div class="col-lg-2 col-md-2 col-sm-6">
+            <select class="form-control">
+              <option>请选择</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-5 col-sm-12">
+          <label  class="col-lg-3 col-md-3 col-sm-6 text-right">月份选择</label>
+          <div class="col-lg-7 col-md-7 col-sm-10">
+            <div class="input-group">
+              <input class="form-control" (click)="isOpenDatepicker = !isOpenDatepicker"  value="{{ getDate() | date: 'yyyy/MM/d'}}">
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+              </span>
+            </div>
+            <div class="date-pack" *ngIf="isOpenDatepicker">
+              <!--<datepicker (mouseleave)="isOpenDatepicker = !isOpenDatepicker" [(ngModel)]="dt" [minDate]="minDate"   [showWeeks]="false"></datepicker>-->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="search-btn">
+        <button class="btn btn-success">确定筛选</button>&nbsp;&nbsp;
+        <button class="btn btn-default">重置筛选</button>
+      </div>
+    </div>
+
+  <div  class="card-border"></div>
+  <div class="tab-content">
+    <div class="row">
+      <div class="pull-left">
+        <h4>&nbsp;&nbsp;销售简报&nbsp;&nbsp;<small class="text-muted">三月数据</small></h4>
+      </div>
+      <div class="pull-right">
+        <a class="btn" (click)="smModal.show()"><i class="fa fa-gear"></i></a>
+        <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" (click)="lgModal.hide()" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">显示字段选择</h4>
+              </div>
+              <div class="modal-body">
+                <div class="row" *ngFor="let item of items">
+                  <div class="col-lg-5 col-lg-offset-1">{{item.name}}</div>
+                  <div class="col-lg-5" (click)="changOpened(item.id,item.opened);item.opened =!item.opened ">
+                    <i class="switch switch-on" *ngIf="item.opened"></i>
+                    <i class="switch switch-off" *ngIf="!item.opened"></i>
+
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="lgModal.hide()">关闭</button>
+                <button type="button" class="btn btn-primary" (click)="lgModal.hide()">确认</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div bsModal #smModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" aria-label="Close" (click)="smModal.hide()">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">显示字段选择</h4>
+              </div>
+              <div class="modal-body">
+                <div class="row" *ngFor="let item of items">
+                  <div class="col-lg-6 col-lg-offset-2">{{item.name}}</div>
+                  <div class="col-lg-4" (click)="changOpened(item.id,item.opened);item.opened =!item.opened ">
+                    <i class="switch switch-on" *ngIf="item.opened"></i>
+                    <i class="switch switch-off" *ngIf="!item.opened"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer  ">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="smModal.hide()">关闭</button>
+                <button type="button" class="btn btn-primary" (click)="saveConfig();smModal.hide()">确认</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="row table-margin-right">
+      <div class="col-lg-2 col-md-2 col-sm-2 thead-contact table-scroll">
+        <table class="table tb-crm  text-center">
+          <tbody>
+          <tr class="thead-bg">
+            <th>
+              所属销售区域
+            </th>
+          </tr>
+          <tr>
+            <td>
+              浙江一区
+            </td>
+          </tr>
+          <tr><td>&nbsp;</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-lg-10 col-md-10 col-sm-10  table-scroll table-margin-right">
+        <div style="height: auto;min-width: 1100px">
+          <table class="table tb-crm text-center">
+            <tbody>
+            <tr class="thead-bg">
+              <th>新增新客户<i class="fa  fa-sort-amount-desc "></i></th>
+              <th>新增成熟客户<i class="fa  fa-sort-amount-desc "></i></th>
+              <th>新增云修客户<i class="fa  fa-sort-amount-desc "></i></th>
+              <th>新增断约客户<i class="fa  fa-sort-amount-desc "></i></th>
+              <th>拜访客户数<i class="fa  fa-sort-amount-desc "></i></th>
+              <th>新增订单数<i class="fa  fa-sort-amount-desc "></i></th>
+              <th>新增订单总金额<i class="fa  fa-sort-amount-desc "></i></th>
+              <th>新增自由品订单数<i class="fa  fa-sort-amount-desc "></i></th>
+            </tr>
+            <tr>
+              <td>罗小慧</td>
+              <td>10</td>
+              <td>10</td>
+              <td>1</td>
+              <td>30</td>
+              <td>30</td>
+              <td>30</td>
+              <td>30</td>
+            </tr>
+            <tr>
+              <td>罗小慧</td>
+              <td>10</td>
+              <td>10</td>
+              <td>1</td>
+              <td>30</td>
+              <td>30</td>
+              <td>30</td>
+              <td>30</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
