@@ -14,10 +14,7 @@ import { ROUTES } from './app.routes';
 import { App } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState } from './app.service';
-import { Home } from './containers/home/home.component';
-import { About } from './containers/about';
 import { LoginComponent } from './containers/login/login.component';
-import {Detail} from './containers/+detail';
 import { NoContent } from './containers/no-content';
 
 // Application wide providers

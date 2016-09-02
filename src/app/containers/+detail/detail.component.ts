@@ -8,7 +8,7 @@ import {Sidebar} from '../../components/sidebar/sidebar.component';
   template: `
       <loading [showLoading]="loading"></loading> 
       <my-navbar></my-navbar>
-      <my-sidebar [table]="data"></my-sidebar>
+      <my-sidebar></my-sidebar>
       <section class="app-main"> 
             <router-outlet></router-outlet>
       </section>
