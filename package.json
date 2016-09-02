@@ -19,7 +19,7 @@
     "webdriver-manager": "webdriver-manager",
     "protractor": "protractor",
     "clean": "npm cache clean && npm run rimraf -- node_modules doc coverage dist",
-    "clean:dist": "npm run rimraf -- ../grace/grace.web/src/main/webapp/dist",
+    "clean:dist": "npm run rimraf -- dist",
     "preclean:install": "npm run clean",
     "clean:install": "npm set progress=false && npm install",
     "preclean:start": "npm run clean",
