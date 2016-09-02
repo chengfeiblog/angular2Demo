@@ -19,7 +19,7 @@ const HtmlElementsPlugin = require('./html-elements-plugin');
  * Webpack Constants
  */
 const METADATA = {
-  title: 'Angular2 Webpack Starter by @gdi2290 from @AngularClass',
+  title: 'grace',
   baseUrl: '/',
   isDevServer: helpers.isWebpackDevServer()
 };
@@ -97,30 +97,7 @@ module.exports = {
      */
     preLoaders: [
 
-      /*
-       * Tslint loader support for *.ts files
-       *
-       * See: https://github.com/wbuchwalter/tslint-loader
-       */
-       // { test: /\.ts$/, loader: 'tslint-loader', exclude: [ helpers.root('node_modules') ] },
 
-      /*
-       * Source map loader support for *.js files
-       * Extracts SourceMaps for source files that as added as sourceMappingURL comment.
-       *
-       * See: https://github.com/webpack/source-map-loader
-       */
-      {
-        test: /\.js$/,
-        loader: 'source-map-loader',
-        exclude: [
-          // these packages have problems with their sourcemaps
-          helpers.root('node_modules/rxjs'),
-          helpers.root('node_modules/@angular'),
-          helpers.root('node_modules/@ngrx'),
-          helpers.root('node_modules/@angular2-material'),
-        ]
-      }
 
     ],
 
@@ -136,12 +113,18 @@ module.exports = {
 
       /*
        * Typescript loader support for .ts and Angular 2 async routes via .async.ts
+       * Replace templateUrl and stylesUrl with require()
        *
        * See: https://github.com/s-panferov/awesome-typescript-loader
+       * See: https://github.com/TheLarkInn/angular2-template-loader
        */
       {
         test: /\.ts$/,
-        loaders: ['awesome-typescript-loader', 'angular2-template-loader'],
+        loaders: [
+          'awesome-typescript-loader',
+          'angular2-template-loader',
+          '@angularclass/hmr-loader'
+        ],
         exclude: [/\.(spec|e2e)\.ts$/]
       },
 
@@ -175,23 +158,13 @@ module.exports = {
         loader: 'raw-loader',
         exclude: [helpers.root('src/index.html')]
       },
-      /**
-       * 加载字体
-       */
-      {
-        test: /\.(woff|woff2|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url?limit=10000&name=fonts/[hash:8].[name].[ext]'
-      },
-      /**
-       *
-       */
-      {
-        test: /\.(jpe?g|png|gif)$/i,
-        loaders: [
-          'url?limit=10000&name=images/[hash:8].[name].[ext]'
-        ]
-      },
 
+      /* File loader for supporting images, for example, in CSS files.
+      */
+      {
+        test: /\.(jpg|png|gif)$/,
+        loader: 'file'
+      }
     ]
 
   },
@@ -205,8 +178,7 @@ module.exports = {
     new ProvidePlugin({
       jQuery: 'jquery',
       $: 'jquery',
-      jquery: 'jquery',
-      slimScroll: 'assets/libs/jquery/jquery.slimscroll-1.3.3.min.js'
+      jquery: 'jquery'
     }),
     /*
      * Plugin: ForkCheckerPlugin
@@ -249,7 +221,12 @@ module.exports = {
     new CopyWebpackPlugin([{
       from: 'src/assets',
       to: 'assets'
-    }]),
+    },
+    {
+      from: 'node_modules/bootstrap/dist',
+      to: 'assets/libs'
+    }
+    ]),
 
     /*
      * Plugin: HtmlWebpackPlugin
@@ -301,6 +278,7 @@ module.exports = {
   node: {
     global: 'window',
     crypto: 'empty',
+    process: true,
     module: false,
     clearImmediate: false,
     setImmediate: false

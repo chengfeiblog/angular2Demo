@@ -1,39 +1,42 @@
-import { Injectable } from '@angular/core';
-import { HmrState } from 'angular2-hmr';
+/**
+ * 全局状态管理（state）
+ * Created by chengfei on 16/8/25.
+ */
+import {Injectable} from '@angular/core';
 
 @Injectable()
 export class AppState {
-  // @HmrState() is used by HMR to track the state of any object during HMR (hot module replacement)
-  @HmrState() _state = { };
+    _state = {};
 
-  constructor() {
+    constructor() {
 
-  }
+    }
 
-  // already return a clone of the current state
-  get state() {
-    return this._state = this._clone(this._state);
-  }
-  // never allow mutation
-  set state(value) {
-    throw new Error('do not mutate the `.state` directly');
-  }
+    // 总是返回一个最新的state
+    get state() {
+        return this._state = this._clone(this._state);
+    }
 
-
-  get(prop?: any) {
-    // use our state getter for the clone
-    const state = this.state;
-    return state.hasOwnProperty(prop) ? state[prop] : state;
-  }
-
-  set(prop: string, value: any) {
-    // internally mutate our state
-    return this._state[prop] = value;
-  }
+    // state不允许变化， 改变state直接抛出异常
+    set state(value) {
+        throw new Error('不能直接改变state');
+    }
 
 
-  _clone(object) {
-    // simple object clone
-    return JSON.parse(JSON.stringify( object ));
-  }
+    get(prop?:any) {
+        // 永远使用克隆的对象
+        const state = this.state;
+        return state.hasOwnProperty(prop) ? state[prop] : null;
+    }
+
+    set(prop:string, value:any) {
+        // 改变state的内部属性
+        return this._state[prop] = value;
+    }
+
+
+    _clone(object) {
+        // 简单的克隆对象
+        return JSON.parse(JSON.stringify(object));
+    }
 }

@@ -1,0 +1,30 @@
+<div class="card-container">
+    <h1 class="sample-content">欢迎使用本系统</h1>
+    <hr>
+
+    <div>
+        开启热更替
+        <pre>npm run start:hmr</pre>
+    </div>
+
+    <hr>
+
+    <div>
+        <h4>本地状态</h4>
+
+        <form (ngSubmit)="submitState(localState.value)" autocomplete="off">
+
+            <input
+                    [value]="localState.value"
+                    (input)="localState.value = $event.target.value"
+                    placeholder="Submit Local State to App State"
+                    autofocus>
+
+            <button md-raised-button color="primary">Submit Value</button>
+        </form>
+
+        <pre>this.localState = {{ localState | json }}</pre>
+
+    </div>
+
+</div>

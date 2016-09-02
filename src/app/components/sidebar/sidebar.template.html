@@ -1,0 +1,37 @@
+<aside id="nav-container">
+    <ul id="nav" myCollapseNav mySlimScroll>
+        <li>
+            <a [routerLink]="['./home']" routerLinkActive="active"> <i class="fa fa-dashboard"></i><span>主页</span> </a>
+        </li>
+        <li require-permissions="">
+            <a href="#"><i class="fa fa-rmb"></i><span>关于</span> </a>
+            <i class="fa fa-caret-right icon-has-ul"></i>
+            <ul>
+                <li require-permissions="">
+                    <a [routerLink]="['./about']" routerLinkActive="active"><i
+                            class="fa fa-caret-right"></i><span>关于</span></a>
+                </li>
+            </ul>
+        </li>
+        <li require-permissions="">
+            <a href="#"><i class="fa fa-rmb"></i><span>登录</span> </a>
+            <i class="fa fa-caret-right icon-has-ul"></i>
+            <ul>
+                <li require-permissions="">
+                    <a [routerLink]="['./login']" routerLinkActive="active"><i
+                            class="fa fa-caret-right"></i><span>登录</span></a>
+                </li>
+            </ul>
+        </li>
+        <li require-permissions="">
+            <a href="#"><i class="fa fa-rmb"></i><span>测试异步</span> </a>
+            <i class="fa fa-caret-right icon-has-ul"></i>
+            <ul>
+                <li require-permissions="">
+                    <a [routerLink]="['./lazyLoad']" routerLinkActive="active"><i
+                            class="fa fa-caret-right"></i><span>测试异步</span></a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</aside>

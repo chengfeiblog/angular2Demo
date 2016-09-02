@@ -1,0 +1,74 @@
+.loading {
+    background: rgba(255, 255, 255, 0.5) none repeat scroll 0 0;
+    border-radius: 15px;
+    display: block;
+    height: 100%;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    vertical-align: middle;
+    width: 100%;
+    z-index: 100;
+    left: 0;
+}
+
+@keyframes dots-loader {
+    0% {
+        box-shadow: -14px -14px 0 7px #f86, 14px -14px 0 7px #fc6, 14px 14px 0 7px #6d7, -14px 14px 0 7px #4ae;
+    }
+    8.33% {
+        box-shadow: 14px -14px 0 7px #f86, 14px -14px 0 7px #fc6, 14px 14px 0 7px #6d7, -14px 14px 0 7px #4ae;
+    }
+    16.67% {
+        box-shadow: 14px 14px 0 7px #f86, 14px 14px 0 7px #fc6, 14px 14px 0 7px #6d7, -14px 14px 0 7px #4ae;
+    }
+    25% {
+        box-shadow: -14px 14px 0 7px #f86, -14px 14px 0 7px #fc6, -14px 14px 0 7px #6d7, -14px 14px 0 7px #4ae;
+    }
+    33.33% {
+        box-shadow: -14px -14px 0 7px #f86, -14px 14px 0 7px #fc6, -14px -14px 0 7px #6d7, -14px -14px 0 7px #4ae;
+    }
+    41.67% {
+        box-shadow: 14px -14px 0 7px #f86, -14px 14px 0 7px #fc6, -14px -14px 0 7px #6d7, 14px -14px 0 7px #4ae;
+    }
+    50% {
+        box-shadow: 14px 14px 0 7px #f86, -14px 14px 0 7px #fc6, -14px -14px 0 7px #6d7, 14px -14px 0 7px #4ae;
+    }
+    58.33% {
+        box-shadow: -14px 14px 0 7px #f86, -14px 14px 0 7px #fc6, -14px -14px 0 7px #6d7, 14px -14px 0 7px #4ae;
+    }
+    66.67% {
+        box-shadow: -14px -14px 0 7px #f86, -14px -14px 0 7px #fc6, -14px -14px 0 7px #6d7, 14px -14px 0 7px #4ae;
+    }
+    75% {
+        box-shadow: 14px -14px 0 7px #f86, 14px -14px 0 7px #fc6, 14px -14px 0 7px #6d7, 14px -14px 0 7px #4ae;
+    }
+    83.33% {
+        box-shadow: 14px 14px 0 7px #f86, 14px -14px 0 7px #fc6, 14px 14px 0 7px #6d7, 14px 14px 0 7px #4ae;
+    }
+    91.67% {
+        box-shadow: -14px 14px 0 7px #f86, 14px -14px 0 7px #fc6, 14px 14px 0 7px #6d7, -14px 14px 0 7px #4ae;
+    }
+    100% {
+        box-shadow: -14px -14px 0 7px #f86, 14px -14px 0 7px #fc6, 14px 14px 0 7px #6d7, -14px 14px 0 7px #4ae;
+    }
+}
+
+.dots-loader:not(:required) {
+    animation: 5s ease-in-out 0s normal none infinite running dots-loader;
+    background: transparent none repeat scroll 0 0;
+    border-radius: 100%;
+    box-shadow: -14px -14px 0 7px #f86, 14px -14px 0 7px #fc6, 14px 14px 0 7px #6d7, -14px 14px 0 7px #4ae;
+    display: inline-block;
+    height: 7px;
+    margin-top: 260px;
+    overflow: hidden;
+    position: relative;
+    text-indent: -9999px;
+    transform-origin: 50% 50% 0;
+    width: 7px;
+    left: 0;
+}

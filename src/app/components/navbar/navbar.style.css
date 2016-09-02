@@ -1,0 +1,28 @@
+.navbar {
+    position: fixed;
+    z-index: 1;
+    background-color: #fff;
+    border: 1px solid #e9e9e9;
+    width: 100%;
+    height: 50px；
+}
+.top-header{
+    border-right: 1px solid #e9e9e9;
+    width: 180px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+}
+.fl{
+    float: left;
+}
+.toggle-min{
+    text-align: center;
+}
+.toggle-min i{
+    font-size: 40px;
+}
+.p5{
+    padding: 5px;
+}

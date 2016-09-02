@@ -5,13 +5,11 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>angular2</title>
-
-  <link rel="stylesheet" href="assets/libs/style/css/style.css">
+  <title><%= webpackConfig.metadata.title %></title>
+  <link rel="stylesheet" href="assets/libs/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/libs/font-awesome-4.2.0/css/font-awesome.min.css">
 
-
-  <meta name="description" content="angular2">
+  <meta name="description" content="<%= webpackConfig.metadata.title %>">
 
   <% if (webpackConfig.htmlElements.headTags) { %>
   <!-- Configured Head Tags  -->
@@ -26,14 +24,11 @@
 
 <body>
 
-<app id="app">
-  <div class="loading">
-    <span class="dots-loader">Loading…</span>
-  </div>
-</app>
+  <app id="app">
+    Loading...
+  </app>
 
-
-  <% if (webpackConfig.metadata.isDevServer) { %>
+  <% if (webpackConfig.metadata.isDevServer && webpackConfig.metadata.HMR !== true) { %>
   <!-- Webpack Dev Server reload -->
   <script src="/webpack-dev-server.js"></script>
   <% } %>

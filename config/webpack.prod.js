@@ -59,7 +59,7 @@ module.exports = webpackMerge(commonConfig, {
      *
      * See: http://webpack.github.io/docs/configuration.html#output-path
      */
-    path: helpers.root('../grace/grace.web/src/main/webapp/new-advanced'),
+    path: helpers.root('dist'),
 
     /**
      * Specifies the name of each output file on disk.
@@ -157,7 +157,7 @@ module.exports = webpackMerge(commonConfig, {
 
 
       beautify: false, //prod
-      mangle: { screw_ie8 : true }, //prod
+      mangle: { screw_ie8 : true, keep_fnames: true }, //prod
       compress: { screw_ie8: true }, //prod
       comments: false //prod
     }),

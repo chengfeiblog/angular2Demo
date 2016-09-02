@@ -1,14 +1,10 @@
-/**
- * 导入插件
- */
-import 'jquery';
-import 'assets/libs/slimscroll/jquery.slimscroll-1.3.3.min.js';
 // Polyfills
 
 // import 'ie-shim'; // Internet Explorer 9 support
 
-//弥补当前浏览器对es6的支持
+
 // import 'core-js/es6';
+// Added parts of es6 which are necessary for your project or your browser support requirements.
 import 'core-js/es6/symbol';
 import 'core-js/es6/object';
 import 'core-js/es6/function';
