@@ -33,13 +33,13 @@ const APP_PROVIDERS = [
     LoginComponent,
     NoContent
   ],
-  imports: [ // 导入angular2的自有模块
+  imports: [ // import Angular's modules
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(ROUTES, { useHash: true })
   ],
-  providers: [ // 将我们的服务和providers 注入angular2中
+  providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
     APP_PROVIDERS
   ]
@@ -49,21 +49,22 @@ export class AppModule {
   hmrOnInit(store) {
     if (!store || !store.state) return;
     console.log('HMR store', store);
-    this.appState.state = store.state;
+    this.appState._state = store.state;
+    this.appRef.tick();
     delete store.state;
   }
   hmrOnDestroy(store) {
-    var cmpLocation = this.appRef.components.map(cmp => cmp.location.nativeElement);
+    const cmpLocation = this.appRef.components.map(cmp => cmp.location.nativeElement);
     // recreate elements
-    var state = this.appState.state;
+    const state = this.appState._state;
     store.state = state;
-    store.disposeOldHosts = createNewHosts(cmpLocation)
+    store.disposeOldHosts = createNewHosts(cmpLocation);
     // remove styles
     removeNgStyles();
   }
   hmrAfterDestroy(store) {
     // display new elements
-    store.disposeOldHosts()
+    store.disposeOldHosts();
     delete store.disposeOldHosts;
   }
 }

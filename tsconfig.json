@@ -5,7 +5,7 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-     "allowSyntheticDefaultImports": true,
+    "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "noEmitHelpers": true,
     "strictNullChecks": false,
@@ -16,9 +16,7 @@
       "dom",
       "es6"
     ],
-    // 这边对应着依赖（切记不能重复）
     "types": [
-      "core-js",
       "hammerjs",
       "jasmine",
       "node",

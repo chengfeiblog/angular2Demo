@@ -12,7 +12,7 @@ import { bootloader } from '@angularclass/hmr';
 import { AppModule } from './app';
 
 /*
- * 启动我们的app
+ * Bootstrap our Angular app with a top level NgModule
  */
 export function main(): Promise<any> {
   return platformBrowserDynamic()
@@ -24,4 +24,3 @@ export function main(): Promise<any> {
 
 
 bootloader(main);
-

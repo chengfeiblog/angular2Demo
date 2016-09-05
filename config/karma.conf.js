@@ -9,14 +9,7 @@ module.exports = function(config) {
 
     // base path that will be used to resolve all patterns (e.g. files, exclude)
     basePath: '',
-    plugins: [
-      'karma-chrome-launcher',
-      'karma-jasmine',
-      'karma-coverage',
-      'karma-sourcemap-loader',
-      'karma-webpack',
-      'karma-mocha-reporter'
-    ],
+
     /*
      * Frameworks to use
      *
@@ -25,7 +18,7 @@ module.exports = function(config) {
     frameworks: ['jasmine'],
 
     // list of files to exclude
-    exclude: ['node_modules' ],
+    exclude: [ ],
 
     /*
      * list of files / patterns to load in the browser
@@ -87,7 +80,7 @@ module.exports = function(config) {
     ],
 
     customLaunchers: {
-      Chrome_travis_ci: {
+      ChromeTravisCi: {
         base: 'Chrome',
         flags: ['--no-sandbox']
       }
@@ -97,11 +90,11 @@ module.exports = function(config) {
      * Continuous Integration mode
      * if true, Karma captures browsers, runs the tests and exits
      */
-    singleRun: false
+    singleRun: true
   };
 
-  if(process.env.TRAVIS){
-    configuration.browsers = ['Chrome_travis_ci'];
+  if (process.env.TRAVIS){
+    configuration.browsers = ['ChromeTravisCi'];
   }
 
   config.set(configuration);

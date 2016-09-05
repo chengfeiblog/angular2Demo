@@ -1,19 +1,15 @@
 import { Component, SimpleChange } from '@angular/core';
 import {AppState} from '../../app.service';
-import {Loading} from '../../components/loading/loading.component';
-import {Navbar} from '../../components/navbar/navbar.component';
-import {Sidebar} from '../../components/sidebar/sidebar.component';
 @Component({
   selector: 'detail',
   template: `
       <loading [showLoading]="loading"></loading> 
-      <my-navbar></my-navbar>
-      <my-sidebar></my-sidebar>
+      <navbar></navbar>
+      <sidebar></sidebar>
       <section class="app-main"> 
             <router-outlet></router-outlet>
       </section>
   `,
-  directives: [Loading, Navbar, Sidebar],
   styleUrls: [
     './detail.style.css'
   ],

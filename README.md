@@ -4,7 +4,7 @@
 ```bash
 
 # 如果编译出现异常 ，如：
-Variable '$' must be of type 'JQueryStatic', but here has type 'cssSelectorHelper'.
+Variable '$' must be of type 'cssSelectorHelper', but here has type 'JQueryStatic'.
 解决方法： 找到@type/protractor下的index.d.ts,将declare var $: cssSelectorHelper注释掉， 这是jquery的类型跟ng2的类型冲突导致
 
 # 下载依赖包

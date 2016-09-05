@@ -3,13 +3,11 @@ import {AppState} from '../../app.service';
 import * as $ from 'jquery';
 @Component({
     selector: 'home',
-    pipes: [],
     styleUrls: ['./home.style.css'],
     templateUrl: './home.template.html'
 })
 export class Home {
-    localState = {value: ''};
-
+    loading: string = 'false';
     constructor(public appState:AppState) {
 
     }
@@ -19,11 +17,14 @@ export class Home {
         console.log('jquery', $(selector).text());
     }
 
-    submitState(value) {
-        console.log('submitState', value);
-        this.appState.set('value', value);
-        this.appState.set('loading',true);
-        this.localState.value = '';
+    changeState() {
+        var self = this;
+        self.appState.set('loading',true);
+        self.loading = 'true';
+        setTimeout(() => {
+            self.appState.set('loading', false);
+            self.loading = 'false';
+        },2000);
     }
 
 }
