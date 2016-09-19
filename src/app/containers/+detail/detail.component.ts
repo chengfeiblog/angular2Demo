@@ -3,7 +3,7 @@ import {AppState} from '../../app.service';
 @Component({
   selector: 'detail',
   template: `
-      <loading [showLoading]="loading"></loading> 
+      <loading [showLoading]="showLoading"></loading> 
       <navbar></navbar>
       <sidebar></sidebar>
       <section class="app-main"> 
@@ -15,7 +15,7 @@ import {AppState} from '../../app.service';
   ],
 })
 export class Detail {
-  loading:boolean = false;
+  showLoading:boolean = false;
 
   constructor(public appState : AppState ) {
 
@@ -32,7 +32,7 @@ export class Detail {
    * 用来监测所有变化 ( 无论是 Angular 本身能检测的还是无法检测的 ) ,所以这边能更新loading状态
    */
   ngDoCheck() {
-    this.loading = this.appState.get('loading') || false;
+    this.showLoading = this.appState.get('loading') || false;
   }
 
   /**

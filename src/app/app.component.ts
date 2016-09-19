@@ -15,12 +15,14 @@ import { AppState } from './app.service';
   styleUrls: [
     './app.style.css'
   ],
-  template: `<router-outlet></router-outlet>`
+  template: `
+   <router-outlet></router-outlet>
+  `
 })
 export class App {
   angularclassLogo = 'assets/img/angularclass-avatar.png';
-  name = 'Angular 2';
-  url = 'https://github.com/chengFeiBlog/angular2Demo';
+  name = 'Angular 2 Webpack Starter';
+  url = 'https://twitter.com/AngularClass';
 
   constructor(
     public appState: AppState) {

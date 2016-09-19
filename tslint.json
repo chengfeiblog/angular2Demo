@@ -23,7 +23,6 @@
         "parameter": "nospace",
         "property-declaration": "nospace",
         "variable-declaration": "nospace"
-        
       },
       {
         "call-signature": "space",
