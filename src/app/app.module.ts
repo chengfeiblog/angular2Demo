@@ -14,8 +14,18 @@ import { ROUTES } from './app.routes';
 import { AppState, InteralStateType } from './app.service';
 // app 是我们最顶层的组件
 import { App } from './app.component';
+
+// 导入组件
+import {Loading} from './components/loading/loading.component';
+import {Navbar} from './components/navbar/navbar.component';
+import {Sidebar} from './components/sidebar/sidebar.component';
+import {MyToggleMinNavDirecive} from './components/navbar/toggleMinNav.directive';
+import {MyCollapseNavDirective} from './components/sidebar/collapseNav.directive';
+import {MySlimScrollDirective} from './components/sidebar/slimScroll.directive';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
+import {DashboardComponent} from './containers/dashboard/dashboard.component';
 import { LoginComponent } from './containers/login/login.component';
+import {About} from './containers/about';
 import { NoContent } from './containers/no-content';
 
 // Application wide providers
@@ -37,7 +47,15 @@ type StoreType = {
   bootstrap: [ App ],
   declarations: [
     App,
+    Loading,
+    Navbar,
+    Sidebar,
+    MyToggleMinNavDirecive,
+    MyCollapseNavDirective,
+    MySlimScrollDirective,
     LoginComponent,
+    DashboardComponent,
+    About,
     NoContent
   ],
   imports: [ // import Angular's modules

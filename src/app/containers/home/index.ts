@@ -3,23 +3,24 @@ import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { Detail } from './detail.component';
-
-console.log('`Detail` bundle loaded asynchronously');
-// async components must be named routes for WebpackAsyncRoute
+import { Home } from './home.component';
+import {HomeService} from './home.service';
+console.log('`Home` bundle loaded asynchronously');
 export const routes = [
-  { path: '', component: Detail, pathMatch: 'full' }
+  { path: '', component: Home, pathMatch: 'full' }
 ];
 
 @NgModule({
   declarations: [
-    // Components / Directives/ Pipes
-    Detail
+    Home
   ],
   imports: [
     CommonModule,
     FormsModule,
     RouterModule.forChild(routes),
+  ],
+  providers: [
+      HomeService
   ]
 })
 export default class AboutModule {

@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
     goToDetail():void {
         // this.router.navigate([`/user/${loginname}`]);
         // this.router.navigate(['/user', loginname]);
-        this.router.navigate(['/detail']);
+        this.router.navigate(['/dashboard']);
     }
 
 }

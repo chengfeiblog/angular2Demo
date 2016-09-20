@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {AppState} from '../../app.service';
+import {HomeService} from './home.service';
 import * as $ from 'jquery';
 @Component({
     selector: 'home',
@@ -8,7 +9,8 @@ import * as $ from 'jquery';
 })
 export class Home {
     loading: string = 'false';
-    constructor(public appState:AppState) {
+    constructor(public appState:AppState,
+    public homeService : HomeService) {
 
     }
 
